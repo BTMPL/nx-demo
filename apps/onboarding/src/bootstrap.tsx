@@ -6,16 +6,19 @@ import App from './app/app';
 import { RouteProvider } from './app/routingContext';
 
 import config from '../module-federation.config'
+import { Redux } from '@shell-demo/redux';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <RouteProvider>
-    <StrictMode>
-      <BrowserRouter basename={config.path}>
-        <App />
-      </BrowserRouter>
-    </StrictMode>
-  </RouteProvider>
+  <Redux>
+    <RouteProvider>
+      <StrictMode>
+        <BrowserRouter basename={config.path}>
+          <App />
+        </BrowserRouter>
+      </StrictMode>
+    </RouteProvider>
+  </Redux>
 );

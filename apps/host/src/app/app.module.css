@@ -5,11 +5,17 @@ body {
   margin: 0;
   padding: 1rem;
   background: #e7e7e7;
+  display: flex;
+  flex-direction: row;
 }
 
 .shell-header li {
   display: inline-block;
   margin-right: 1rem;
+}
+
+.shell-header li:last-child {
+  margin-left: auto;
 }
 
 .shell-header a {

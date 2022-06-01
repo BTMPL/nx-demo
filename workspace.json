@@ -6,6 +6,7 @@
     "host-e2e": "apps/host-e2e",
     "onboarding": "apps/onboarding",
     "onboarding-e2e": "apps/onboarding-e2e",
+    "redux": "libs/redux",
     "transactions": "apps/transactions",
     "transactions-e2e": "apps/transactions-e2e"
   }
