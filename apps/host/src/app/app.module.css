@@ -1,0 +1,22 @@
+body {
+  font: 14px/18px Tahoma;
+}
+.shell-header {
+  margin: 0;
+  padding: 1rem;
+  background: #e7e7e7;
+}
+
+.shell-header li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.shell-header a {
+  text-decoration: none;
+  color: black;
+}
+
+.shell-header a[class="active"] {
+  text-decoration: underline;
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/transactions/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/transactions",
+        "index": "apps/transactions/src/index.html",
+        "baseHref": "/",
+        "main": "apps/transactions/src/main.ts",
+        "polyfills": "apps/transactions/src/polyfills.ts",
+        "tsConfig": "apps/transactions/tsconfig.app.json",
+        "assets": [
+          "apps/transactions/src/favicon.ico",
+          "apps/transactions/src/assets"
+        ],
+        "styles": ["apps/transactions/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/transactions/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/transactions/src/environments/environment.ts",
+              "with": "apps/transactions/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/transactions/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "transactions:build",
+        "hmr": true,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "transactions:build:development"
+        },
+        "production": {
+          "buildTarget": "transactions:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/transactions/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/transactions"],
+      "options": {
+        "jestConfig": "apps/transactions/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "transactions:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "transactions:build:development"
+        },
+        "production": {
+          "buildTarget": "transactions:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
