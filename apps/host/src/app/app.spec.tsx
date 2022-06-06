@@ -22,6 +22,6 @@ describe('App', () => {
       </BrowserRouter>
     );
 
-    expect(getByText(/Welcome host/gi)).toBeTruthy();
+    expect(getByText(/This is root home/gi)).toBeTruthy();
   });
 });

@@ -30,7 +30,7 @@ export function App() {
 
         <Route
           path="/onboarding/*"
-          element={<Onboarding basename="onboarding" />}
+          element={<Onboarding />}
         />
       </Routes>
     </React.Suspense>
