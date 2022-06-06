@@ -41,6 +41,11 @@ export function App() {
   const dispatch = useDispatch();
   return (
     <div style={{marginTop: '1em'}}>
+      {!isShell() && <div style={{
+        padding: '1rem',
+        backgroundColor: '#f7f7f7',
+        marginBottom: '1em',
+      }}>Moje wlasne menu w trybie standalone</div>}
       This is Onboarding app context. You are {user ? `signed in as ${user} ` : `not signed in`}
       {user && <button onClick={() => dispatch(userReducer.actions.signOut())}>sign out</button>}
         <ul>
